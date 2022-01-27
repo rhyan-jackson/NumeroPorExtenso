@@ -65,3 +65,7 @@ while True:
           if tamanho != 1 else f'O número indicado tem 1 dígito.\033[m')
     print(f'\033[35mEle por extenso é ➤ \033[34m{extenso}.\033[m')
     print('―' * 40)
+<<<<<<< HEAD
+=======
+pinto murxo
+>>>>>>> e2f74b2 (Numero por extenso.)
