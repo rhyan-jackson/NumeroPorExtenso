@@ -1,21 +1,17 @@
 from time import sleep
 from banco import *
 
-boasvindas()
 
-while True:
+def mostrarextenso(digito, printar=False):
     # Inserção do termo com verificação de flag de parada e se o digito está entre os intervalos especificados.
-    while True:
-        digito = str(input('\033[34mInsira o número que você deseja mostrar por extenso.\n'
-                           'R ➤ \033[m')).strip()
-        if digito == '1000':
-            print('\033[35mOk, finalizamos por aqui, obrigado por ter utilizado o meu serviço, adeus!')
-            exit()
-        if digito.isnumeric() and 0 <= int(digito) <= 999:
-            print('\033[35mNúmero inserido com sucesso.\033[m')
-            sleep(0.6)
-            break
-# Limpeza de zeros e verificação do tamanho do número inserido (1, 2 ou 3 dígitos).
+    digito = str(digito)
+    if digito.isnumeric() and 0 <= int(digito) <= 999 and printar:
+        print('\033[35mNúmero inserido com sucesso.\033[m')
+        sleep(0.6)
+    else:
+        print('\033[31mERRO! Insira um número inteiro de 0 a 999 para mostrá-lo por extenso.\033[m')
+        exit()
+    # Limpeza de zeros e verificação do tamanho do número inserido (1, 2 ou 3 dígitos).
     digito = limparzeros(digito)
     tamanho = len(digito)
     extenso = 'NULL'
@@ -60,9 +56,11 @@ while True:
 
         extenso = ' e '.join(extensoLista)  # Aqui é feita a junção das palavras na lista.
 
-# Print de tudo e 'final' do programa principal.
-    print(f'\033[36;40mO número indicado tem {tamanho} dígitos\033[m'
-          if tamanho != 1 else f'O número indicado tem 1 dígito.\033[m')
-    print(f'\033[35mEle por extenso é ➤ \033[34m{extenso}.\033[m')
-    print('―' * 40)
-pinto murxo
+    # Print de tudo e 'final' do programa principal.
+    if printar:
+        print(f'\033[36;40mO número indicado tem {tamanho} dígitos\033[m'
+              if tamanho != 1 else f'O número indicado tem 1 dígito.\033[m')
+        print(f'\033[35mEle por extenso é ➤ \033[34m{extenso}.\033[m')
+        print('―' * 40)
+    else:
+        return extenso

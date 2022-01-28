@@ -3,6 +3,7 @@ def limparzeros(string):
     final = str(dig)
     return final
 
+
 def boasvindas():
     print('\033[34mOlá!, seja bem-vindo ao meu programa.')
     print('\033[36mEle serve para mostrar qualquer número de 0 a 999 por extenso.')
